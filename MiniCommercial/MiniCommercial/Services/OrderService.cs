@@ -169,4 +169,24 @@ public class OrderService : IOrderService
             UnitPrice = l.UnitPrice
         }).ToList()
     };
+    public async Task<DashboardStatsDto> GetDashboardStatsAsync(DateTime? startDate, DateTime? endDate)
+    {
+        var ordersQuery = _context.Orders.AsQueryable();
+        var clientsQuery = _context.Clients.AsQueryable();
+
+        // Appliquer le filtre par date si les dates sont fournies
+        if (startDate.HasValue)
+            ordersQuery = ordersQuery.Where(o => o.OrderDate >= startDate.Value);
+
+        if (endDate.HasValue)
+            ordersQuery = ordersQuery.Where(o => o.OrderDate <= endDate.Value);
+
+        return new DashboardStatsDto
+        {
+            TotalClients = await clientsQuery.CountAsync(),
+            TotalOrders = await ordersQuery.CountAsync(),
+            TotalRevenue = await ordersQuery.SumAsync(o => o.TotalTTC),
+            ProductsInStock = await _context.Products.SumAsync(p => p.StockQuantity)
+        };
+    }
 }

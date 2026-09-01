@@ -1,4 +1,5 @@
 ﻿using MiniCommercial.Models.DTOs;
+using MiniCommercial.Models.Entities;
 namespace MiniCommercial.Services;
 
 public interface IOrderService
@@ -9,4 +10,5 @@ public interface IOrderService
     Task<bool> UpdateOrderAsync(int id, OrderCreateDto dto);
     Task<bool> DeleteOrderAsync(int id);
     Task ValidateOrderAsync(int id);
+    Task<DashboardStatsDto> GetDashboardStatsAsync(DateTime? startDate, DateTime? endDate);
 }

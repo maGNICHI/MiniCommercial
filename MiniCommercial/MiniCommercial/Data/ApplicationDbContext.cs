@@ -1,4 +1,7 @@
-﻿namespace MiniCommercial.Data
+﻿using Microsoft.EntityFrameworkCore;
+using MiniCommercial.Models.Entities;
+
+namespace MiniCommercial.Data
 {
     using Microsoft.EntityFrameworkCore;
     using MiniCommercial.Models;
@@ -12,6 +15,7 @@
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
