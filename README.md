@@ -49,14 +49,14 @@ L'application sera disponible sur : http://localhost:4200
 
 📸 Captures d'écran
 Tableau de Commandes
-![alt text](products.png)
+![alt text](./screenshots/products.png)
 Détail de la commande 
-![alt text](<commande detaille.png>) 
+![alt text](./screenshots/commande detaille.png) 
 Tableau de clients 
- ![alt text](clients.png) 
+ ![alt text](./screenshots/clients.png) 
  Tableau de commandes 
-![alt text](commmandes.png)
+![alt text](./screenshots/commmandes.png)
 modification de produit
- ![alt text](modif-products.png)
+ ![alt text](./screenshots/modif-products.png)
  creation nouveau client
-  ![alt text](NouveauClient.png)
+  ![alt text](./screenshots/NouveauClient.png)
